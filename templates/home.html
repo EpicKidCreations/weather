@@ -17,56 +17,62 @@
         <p class=pconditions>
             The hourly report:
             <br>
-            Format: Time, Conditions, Temperature, Humidity, Perciperation Probability, Wind Speed, Cloudcover, Solarenergy
+            Time, Conditions, Temperature, Humidity, Perciperation Probability, Wind Speed, Cloudcover, Solarenergy
             <br>
-            12 AM:{{ conditions[0] }}
+            12 AM: {{ conditions[0] }}
             <br> 
-            1 AM:{{ conditions[1] }} 
+            1 AM:  {{ conditions[1] }} 
             <br> 
-            2 AM:{{ conditions[2] }} 
+            2 AM:  {{ conditions[2] }} 
             <br> 
-            3 AM:{{ conditions[3] }} 
+            3 AM:  {{ conditions[3] }} 
             <br> 
-            4 AM:{{ conditions[4] }} 
+            4 AM:  {{ conditions[4] }} 
             <br> 
-            5 AM:{{ conditions[5] }} 
+            5 AM:  {{ conditions[5] }} 
             <br> 
-            6 AM:{{ conditions[6] }} 
+            6 AM:  {{ conditions[6] }} 
             <br> 
-            7 AM:{{ conditions[7] }} 
+            7 AM:  {{ conditions[7] }} 
             <br> 
-            8 AM:{{ conditions[8] }} 
+            8 AM:  {{ conditions[8] }} 
             <br> 
-            9 AM:{{ conditions[9] }} 
+            9 AM:  {{ conditions[9] }} 
             <br> 
-            10 AM:{{ conditions[10] }} 
+            10 AM: {{ conditions[10] }} 
             <br> 
-            11 AM:{{ conditions[11] }} 
+            11 AM: {{ conditions[11] }} 
             <br> 
-            12 PM:{{ conditions[12] }}
+            12 PM: {{ conditions[12] }}
             <br> 
-            1 PM:{{ conditions[13]}} 
+            1 PM:  {{ conditions[13]}} 
             <br>
-            2 PM:{{ conditions[14] }} 
+            2 PM:  {{ conditions[14] }} 
             <br>
-            3 PM:{{ conditions[15] }} 
+            3 PM:  {{ conditions[15] }} 
             <br>
-            4 PM:{{ conditions[16] }} 
+            4 PM:  {{ conditions[16] }} 
             <br>
-            5 PM:{{ conditions[17] }} 
+            5 PM:  {{ conditions[17] }} 
             <br>
-            6 PM:{{ conditions[18] }} 
+            6 PM:  {{ conditions[18] }} 
             <br>
-            7 PM:{{ conditions[19] }} 
+            7 PM:  {{ conditions[19] }} 
             <br>
-            8 PM:{{ conditions[20] }} 
+            8 PM:  {{ conditions[20] }} 
             <br>
-            9 PM:{{ conditions[21] }} 
+            9 PM:  {{ conditions[21] }} 
             <br>
-            10 PM:{{ conditions[22] }} 
+            10 PM: {{ conditions[22] }} 
             <br>
-            11 PM:{{ conditions[23] }}
-    {% endif %}         
+            11 PM: {{ conditions[23] }}
+    {% if next_7_days %}
+            <p class=next_7_days> <h4>The Next 7 days the weather are: {{ next_7_days }}</h4> 
+    {% if at %}
+        <p class=at> <h4>The Next 7 days the temperature are: {{ at }}</h4> 
+    {% endif %}            
+{% endif %} 
+{% endif %}         
     {% endif %}
 </body>
 </html>
