@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <form action="/" method="post">
+    <h3>What City are you from?</h3>
+    <input type="text" name="city" id ="city">
+    <input type="submit" value="submit">
+    </form>
+    {% if daily %}
+    <p class=daily> <h4>{{ daily }}</h4> 
+    {% if conditions %}
+        <p class=pconditions>
+            The hourly report:
+            <br>
+            Format: Time, Conditions, Temperature, Humidity, Perciperation Probability, Wind Speed, Cloudcover, Solarenergy
+            <br>
+            12 AM:{{ conditions[0] }}
+            <br> 
+            1 AM:{{ conditions[1] }} 
+            <br> 
+            2 AM:{{ conditions[2] }} 
+            <br> 
+            3 AM:{{ conditions[3] }} 
+            <br> 
+            4 AM:{{ conditions[4] }} 
+            <br> 
+            5 AM:{{ conditions[5] }} 
+            <br> 
+            6 AM:{{ conditions[6] }} 
+            <br> 
+            7 AM:{{ conditions[7] }} 
+            <br> 
+            8 AM:{{ conditions[8] }} 
+            <br> 
+            9 AM:{{ conditions[9] }} 
+            <br> 
+            10 AM:{{ conditions[10] }} 
+            <br> 
+            11 AM:{{ conditions[11] }} 
+            <br> 
+            12 PM:{{ conditions[12] }}
+            <br> 
+            1 PM:{{ conditions[13]}} 
+            <br>
+            2 PM:{{ conditions[14] }} 
+            <br>
+            3 PM:{{ conditions[15] }} 
+            <br>
+            4 PM:{{ conditions[16] }} 
+            <br>
+            5 PM:{{ conditions[17] }} 
+            <br>
+            6 PM:{{ conditions[18] }} 
+            <br>
+            7 PM:{{ conditions[19] }} 
+            <br>
+            8 PM:{{ conditions[20] }} 
+            <br>
+            9 PM:{{ conditions[21] }} 
+            <br>
+            10 PM:{{ conditions[22] }} 
+            <br>
+            11 PM:{{ conditions[23] }}
+    {% endif %}         
+    {% endif %}
+</body>
+</html>
