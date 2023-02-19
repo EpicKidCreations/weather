@@ -3,10 +3,6 @@ from flask import request, Flask, render_template
 import requests
 import json
 
-# place = input("What City do ou live in? ") 
-response = requests.get(f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Texas/today?unitGroup=metric&key=R7AJKMMK92F92AU32GWEFQ82M&contentType=json")
-print(response.status_code)
-
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -19,7 +15,6 @@ def home():
         response1 = requests.get(f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}/next7days?unitGroup=metric&include=days&key=R7AJKMMK92F92AU32GWEFQ82M&contentType=json")
         report = response.json()
         report1 = response1.json()
-        print(report1)
         next_7_days = []
         at = []
         for days in report1['days']:
@@ -29,10 +24,6 @@ def home():
             at.append((tma+tmi)/2)
             print(days['conditions'])
             print(at)
-            
-
-        print(response.status_code)
-
         conditions = []
         ra = report['resolvedAddress'] 
         for days in report['days']:
@@ -51,7 +42,7 @@ def home():
                 ws = hours['windspeed']   
                 cc = hours['cloudcover'] 
                 se = hours['solarenergy']
-                conditions.append(f" {icon}, {temp} , {hum}, {perci}, {ws}, {cc}, {se}")         
+                conditions.append(f" {icon}, {temp} , {hum}, {perci}%, {ws}, {cc}, {se}")         
         return render_template('home.html', conditions=conditions, daily=daily, next_7_days=next_7_days, at=at)
 
 

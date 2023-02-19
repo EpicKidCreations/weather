@@ -4,7 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
 </head>
+
 <body>
     <form action="/" method="post">
     <h3>What City are you from?</h3>
@@ -12,9 +33,8 @@
     <input type="submit" value="submit">
     </form>
     {% if daily %}
-    <p class=daily> <h4>{{ daily }}</h4> 
+    <h4>{{ daily }}</h4> 
     {% if conditions %}
-        <p class=pconditions>
             The hourly report:
             <br>
             Time, Conditions, Temperature, Humidity, Perciperation Probability, Wind Speed, Cloudcover, Solarenergy
@@ -67,9 +87,9 @@
             <br>
             11 PM: {{ conditions[23] }}
     {% if next_7_days %}
-            <p class=next_7_days> <h4>The Next 7 days the weather are: {{ next_7_days }}</h4> 
+            <h4>The Next 7 days the weather are: {{ next_7_days }}</h4> 
     {% if at %}
-        <p class=at> <h4>The Next 7 days the temperature are: {{ at }}</h4> 
+        <h4>The Next 7 days the temperature are: {{ at }}</h4> 
     {% endif %}            
 {% endif %} 
 {% endif %}         
