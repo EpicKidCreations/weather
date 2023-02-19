@@ -22,8 +22,6 @@ def home():
             tma = days['tempmax']
             tmi = days['tempmin']
             at.append((tma+tmi)/2)
-            print(days['conditions'])
-            print(at)
         conditions = []
         next_7_days.pop(1)
         at.pop(1)
@@ -49,12 +47,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# def jprint(obj):
-#     # create a formatted string of the Python JSON object
-#     text = json.dumps(obj, sort_keys=True, indent=4)
-#     print(text)
-
-# jprint(response.json())
+    app.run(debug=False,host='0.0.0.0')
