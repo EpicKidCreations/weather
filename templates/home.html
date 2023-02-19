@@ -8,16 +8,11 @@
         * {
           box-sizing: border-box;
         }
-        
-        /* Create two equal columns that floats next to each other */
         .column {
           float: left;
           width: 50%;
           padding: 10px;
-          height: 300px; /* Should be removed. Only for demonstration */
         }
-        
-        /* Clear floats after the columns */
         .row:after {
           content: "";
           display: table;
@@ -35,6 +30,8 @@
     {% if daily %}
     <h4>{{ daily }}</h4> 
     {% if conditions %}
+    <div class="row">
+        <div class="column">
             The hourly report:
             <br>
             Time, Conditions, Temperature, Humidity, Perciperation Probability, Wind Speed, Cloudcover, Solarenergy
@@ -86,11 +83,16 @@
             10 PM: {{ conditions[22] }} 
             <br>
             11 PM: {{ conditions[23] }}
-    {% if next_7_days %}
+        </div>
+        <div class="column">
+
+          {% if next_7_days %}
             <h4>The Next 7 days the weather are: {{ next_7_days }}</h4> 
     {% if at %}
         <h4>The Next 7 days the temperature are: {{ at }}</h4> 
-    {% endif %}            
+    {% endif %} 
+        </div>
+    </div>
 {% endif %} 
 {% endif %}         
     {% endif %}

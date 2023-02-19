@@ -25,6 +25,8 @@ def home():
             print(days['conditions'])
             print(at)
         conditions = []
+        next_7_days.pop(1)
+        at.pop(1)
         ra = report['resolvedAddress'] 
         for days in report['days']:
             c = days['conditions']
@@ -43,7 +45,7 @@ def home():
                 cc = hours['cloudcover'] 
                 se = hours['solarenergy']
                 conditions.append(f" {icon}, {temp} , {hum}, {perci}%, {ws}, {cc}, {se}")         
-        return render_template('home.html', conditions=conditions, daily=daily, next_7_days=next_7_days, at=at)
+        return render_template('home.html', conditions=conditions, daily=daily, next_7_days=next_7_days, at=at, c=c)
 
 
 if __name__ == '__main__':
